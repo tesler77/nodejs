@@ -28,7 +28,7 @@ class UserService{
         this.users.find((user,index)=>{
             indexInArrey = index;
             return user.id === id;
-        })
+        })        
         this.users.splice(indexInArrey,1);
     }
 
@@ -44,7 +44,9 @@ class UserService{
         const user = this.users.find((user)=>{
             return user.id === id;
         })
+        if(user)
         return user;
+        throw new Error('user not found')
     }
 }
 
